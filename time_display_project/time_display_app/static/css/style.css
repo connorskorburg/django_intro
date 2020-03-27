@@ -1,0 +1,26 @@
+*{
+    background-color: khaki;
+    font-family: sans-serif;
+    color: #333;
+}
+div#container{
+    margin: 0 auto;
+    width: 450px;
+    margin-top: 200px;
+}
+div#date{
+    border: 3px solid #333;
+    border-radius: 10px;
+    font-size: 40px;
+    padding: 25px;
+}
+div#time{
+    border: 3px solid #333;
+    border-radius: 10px;
+    font-size: 40px;
+    padding: 25px;
+    margin-top: 10px;
+}
+span{
+    color: teal;
+}

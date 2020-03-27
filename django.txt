@@ -1,0 +1,25 @@
+1. start your virtual environment
+2. nav to the folder where you want to start your project in the terminal
+3. cmd: django-admin startproject your_project_name_here
+4. cmd: cd your_project_name_here
+5. cmd: python manage.py runserver
+6. go to localhost:8000 in browser to confirm project is working
+7. cmd: python manage.py startapp your_app_name_here
+8. VSCODE: in your_project_name_here.settings.py -> add your_app_name_here to list
+of INCLUDED_APPS(DONT FORGET COMMA)
+9. vscode: in your_project_name_here.urls.py -> add include to path import,
+add to urlpatterns
+	a. path('', include(your_app_name_here.urls)),
+10. vscode: in your_app_name_here folder make a urls.py file 
+11. copy info from your_project_name_here.urls.py into your_app_name_here.urls.py
+12. vscode: add to top of file of your_app_name_here.urls.py the import:
+	from . import views
+13. vscode: add the following urlpatterns:
+	path('', views.index)
+14. vscode: in your_app_name_here.views.py add HttpResponse to import and add:
+	def index(request):
+		return HttpResponse("hello world")
+15. cmd: python manage.py runserver
+16. go to localhost:8000 and make sure project is working
+17. add static and templates folders to your_app_name_here folder
+18. make the html,css,js and finish project

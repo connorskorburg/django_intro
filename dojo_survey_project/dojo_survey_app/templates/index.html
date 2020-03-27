@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojo Survey</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <form action="/result" method="post">
+        {% csrf_token %}
+        <h2>Dojo Survey</h2>
+        <div class="name">
+            <label for="name">Your Name:</label>
+            <input id="name" name="name" type="text">
+        </div>
+        <div class="location">
+            <label for="location">Dojo Location: </label>
+            <select name="location_list" id="location">
+                <option value="Seattle, WA">Seattle, WA</option>
+                <option value="Boise, ID">Boise, ID</option>
+                <option value="Tulsa, OK">Tulsa, OK</option>
+                <option value="Berkley, CA">Berkley, CA</option>
+                <option value="Burbank, CA">Burbank, CA</option>
+                <option value="San Jose, CA">San Jose, CA</option>
+                <option value="Orange County, CA">Orange County, CA</option>
+                <option value="Dallas, TX">Dallas, TX</option>
+                <option value="Chicago, IL">Chicago, IL</option>
+                <option value="Arlington, VA/DC">Arlington, VA/DC</option>
+                <option value="Online">Online</option>
+            </select>
+        </div>
+        <div class="lang">
+        <label for="lanuage">Favorite Language: </label>
+            <select name="language_list" id="language">
+                <option value="Python">Python</option>
+                <option value="Java">Java</option>
+                <option value="JavaScript">JavaScript</option>
+                <option value="C++">C++</option>
+                <option value="Ruby">Ruby</option>
+                <option value="PHP">PHP</option>
+                <option value="C">C</option>
+            </select>
+        </div>
+        <div class='comment'>
+            <label for="comment">Comment (optional): </label>
+            <textarea name="comment" id="comment"></textarea>
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
