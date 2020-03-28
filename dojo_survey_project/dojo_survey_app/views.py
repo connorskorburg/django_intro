@@ -2,19 +2,21 @@ from django.shortcuts import render, redirect
 
 # Create your views here.
 def index(request):
-    if request.method == "GET":
-        print("GET")
-        return render(request, 'index.html')
-    if request.method == "POST":
-        print("POST")
-        return redirect("result")
+    return render(request, 'index.html')
+
+def process(request):
+    if request.method != "POST":
+        return redirect('/')
+    print(request.POST)
+    request.session['name'] = request.POST['name']
+    request.session['location'] = request.POST['location_list']
+    request.session['language'] = request.POST['language_list']
+    request.session['comment'] = request.POST['comment']
+    return redirect('/result')
 
 def result(request):
-    if request.method == "POST":
-        context = {
-            'name': request.POST["name"],
-            'location': request.POST["location_list"],
-            'language': request.POST["language_list"],
-            'comment': request.POST["comment"]
-        }
-        return render(request, 'result.html', context)
+    return render(request, 'result.html')
+
+def clear_session(request):
+    request.session.flush()
+    return redirect('/')

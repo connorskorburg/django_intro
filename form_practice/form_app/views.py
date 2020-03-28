@@ -14,7 +14,7 @@ def process(request):
     return redirect('/results')
 
 def results(request):
-    if 'fav_num' no in request.session:
+    if 'fav_num' not in request.session:
         return redirect('/')
     return render(request, "results.html")
 

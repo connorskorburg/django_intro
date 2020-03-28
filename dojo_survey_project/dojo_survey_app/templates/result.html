@@ -10,12 +10,12 @@
 <body>
     <div class="container">
         <h1>Submitted Info</h1>
-        <a href="/">Go Back!</a>
         <div class="info">
-            <p><span>Name:</span> {{ name }}</p>
-            <p><span>Dojo Location:</span> {{ location }}</p>
-            <p><span>Favorite Language:</span> {{ language }}</p>
-            <p><span>Comment:</span> {{ comment }}</p>
+            <p><span> Name:</span> {{ request.session.name }} </p>
+            <p><span> Dojo Location:</span> {{ request.session.location }} </p>
+            <p><span> Favorite Language:</span> {{ request.session.language }} </p>
+            <p><span> Comment:</span> {{ request.session.comment }} </p>
+            <a href="/clear_session">Go Back! </a>
         </div>
     </div>
 </body>

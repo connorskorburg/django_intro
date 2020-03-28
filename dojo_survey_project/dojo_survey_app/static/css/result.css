@@ -17,7 +17,9 @@ div.info{
     font-size: 20px;
     padding-top: 15px;
     /* color: rgb(92, 91, 91); */
-    color: white;
+}
+div.info p{
+    color: white;  
 }
 span{
     color: rgb(189, 186, 186);
