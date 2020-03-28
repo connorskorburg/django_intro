@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body class="bg-dark">
+    <div class="contianer w-50 m-auto"> 
+        <h1 class="text-center text-light mt-5">Random Word(Attempt #{{ request.session.counter }} )</h1>
+        <h1 class="text-center p-5 text-dark mt-5 bg-light border border-info round"> {{ request.session.word }} </h1>
+        <a class="btn btn-outline-primary bg-light p-3" role="button" href="/random_word">Generate</a>
+        <a class="btn btn-primary p-3" role="button" href="/reset">Reset!</a>
+    </div>
+</body>
+</html>
