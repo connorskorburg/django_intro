@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body class="bg-dark">
+    <div class="container-fluid m-auto ml-5">
+        <h1 class="my-5 mt-2 text-primary">Your Gold: <span>{{ request.session.gold_amount }}</span></h1>    
+        <div class="card mx-2 text-center py-5 border-primary">
+            <h1>Farm</h1>
+            <h3>(earns 10-20 golds)</h3>
+            <form action="/process_money" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="farm">
+                <button type="submit" class="btn my-2">Find Gold!</button>
+            </form>
+        </div>
+        <div class="card mx-2 text-center py-5 border-primary">
+            <h1>Cave</h1>
+            <h3>(earns 5-10 golds)</h3>
+            <form action="/process_money" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="cave">
+                <button type="submit" class="btn my-2">Find Gold!</button>
+            </form>
+        </div>
+        <div class="card mx-2 text-center py-5 border-primary">
+            <h1>House</h1>
+            <h3>(earns 2-5 golds)</h3>
+            <form action="/process_money" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="house">
+                <button type="submit" class="btn my-2">Find Gold!</button>
+            </form>
+        </div>
+        <div class="card mx-2 text-center py-5 border-primary"> 
+            <h1>Casino</h1>
+            <h3>(earns/takes 0-50 golds)</h3>
+            <form action="/process_money" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="casino" >
+                <button type="submit" class="btn my-2">Find Gold!</button>
+            </form>
+        </div>
+    </div>
+    <div class="container-fluid m-auto ml-5">
+        <h1 class="mt-5 text-primary">Activities</h1>
+        <a href="/clear_session" role="button" class="btn btn-outline-light mb-2 text-center">RESET!</a>
+        <div class="card bg-light border-primary p-2" id="activity">
+            {% for display in request.session.gold_display %}
+                {% if "Lost" in display %}
+                    <p class="text-danger">{{ display }}</p>
+                {% else %}
+                    <p class="text-success">{{ display }}</p>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
