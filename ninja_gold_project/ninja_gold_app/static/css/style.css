@@ -1,0 +1,17 @@
+.card{
+    display: inline-block;
+    width: 23%;
+    /* height: 500px !important; */
+}
+.btn{
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+#activity{
+    width: 94.5%;
+    height: 300px;
+    overflow-y: scroll;
+}
+span{
+    color: lightgray;
+}
